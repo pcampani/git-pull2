@@ -11,7 +11,7 @@ class GitCommand {
 
     //Command: git status
     // status(){}
-
+    //new comment
     //Command: git add <filename/file directory/wildcard> 
     add(path_file){
         let modified_files = this.working_directory.new_changes;
