@@ -10,8 +10,29 @@ class GitCommand {
     }
 
     //Command: git status
-    // status(){}
-    //new comment
+    status(){        
+        /*
+            For assignment #1:
+            Create logic here and run unit testing.
+        */
+        const directory = this.working_directory.new_changes;
+        let file_count = 0;
+        let url = [];
+        for(let key in directory) { 
+            file_count++;
+            url.push(key);
+        }
+        if(file_count > 0) {
+            let response = `You have ${file_count} change/s.`
+            for(let i = 0; i < url.length; ++i) {
+                response += `\n${url[i]}`
+            }
+            return response;
+        }
+        else {
+            return "You have 0 change/s.\n"
+        }
+    }
     //Command: git add <filename/file directory/wildcard> 
     add(path_file){
         let modified_files = this.working_directory.new_changes;
@@ -23,6 +44,9 @@ class GitCommand {
         /*
             Create logic here and run unit testing.
         */
+        else if(path_file === ".") {
+            this.working_directory.new_changes = this.staging;
+        }
         else{
             return `Failed to add ${path_file}! File is not modified or missing.`;
         }

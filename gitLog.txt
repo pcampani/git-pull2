@@ -1,0 +1,175 @@
+Philips-MacBook-Pro:Javascript philip$ cd git/git-pull2
+Philips-MacBook-Pro:git-pull2 philip$ git init
+Initialized empty Git repository in /Users/philip/Downloads/Javascript/git/git-pull2/.git/
+Philips-MacBook-Pro:git-pull2 philip$ git add .
+Philips-MacBook-Pro:git-pull2 philip$ git commit -m "first commit"
+[master (root-commit) 7e98c89] first commit
+ Committer: Philip <philip@Philips-MacBook-Pro.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 7 files changed, 229 insertions(+)
+ create mode 100755 .gitIgnore
+ create mode 100755 README.md
+ create mode 100755 app.js
+ create mode 100755 models/git-command.js
+ create mode 100755 models/working-directory.js
+ create mode 100755 package.json
+ create mode 100755 test/git.test.js
+Philips-MacBook-Pro:git-pull2 philip$ git branch -a
+* master
+Philips-MacBook-Pro:git-pull2 philip$ git checkout -b develop
+Switched to a new branch 'develop'
+Philips-MacBook-Pro:git-pull2 philip$ git status
+On branch develop
+nothing to commit, working tree clean
+Philips-MacBook-Pro:git-pull2 philip$ git commit -m "branch commit"
+On branch develop
+nothing to commit, working tree clean
+Philips-MacBook-Pro:git-pull2 philip$ git checkout master
+Switched to branch 'master'
+Philips-MacBook-Pro:git-pull2 philip$ git remote add origin git@github.com:pcampani/git-pull2.git
+Philips-MacBook-Pro:git-pull2 philip$ git push -u origin master
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (11/11), 3.32 KiB | 849.00 KiB/s, done.
+Total 11 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:pcampani/git-pull2.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+Philips-MacBook-Pro:git-pull2 philip$ git checkout develop
+Switched to branch 'develop'
+Philips-MacBook-Pro:git-pull2 philip$ git push -u origin develop
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'develop' on GitHub by visiting:
+remote:      https://github.com/pcampani/git-pull2/pull/new/develop
+remote: 
+To github.com:pcampani/git-pull2.git
+ * [new branch]      develop -> develop
+Branch 'develop' set up to track remote branch 'develop' from 'origin'.
+Philips-MacBook-Pro:git-pull2 philip$ git checkout -b feature/git_add_all 
+Switched to a new branch 'feature/git_add_all'
+Philips-MacBook-Pro:git-pull2 philip$ git pull
+warning: Pulling without specifying how to reconcile divergent branches is
+discouraged. You can squelch this message by running one of the following
+commands sometime before your next pull:
+
+  git config pull.rebase false  # merge (the default strategy)
+  git config pull.rebase true   # rebase
+  git config pull.ff only       # fast-forward only
+
+You can replace "git config" with "git config --global" to set a default
+preference for all repositories. You can also pass --rebase, --no-rebase,
+or --ff-only on the command line to override the configured default per
+invocation.
+
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> feature/git_add_all
+
+Philips-MacBook-Pro:git-pull2 philip$ git push -u origin feature/git_add_all 
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'feature/git_add_all' on GitHub by visiting:
+remote:      https://github.com/pcampani/git-pull2/pull/new/feature/git_add_all
+remote: 
+To github.com:pcampani/git-pull2.git
+ * [new branch]      feature/git_add_all -> feature/git_add_all
+Branch 'feature/git_add_all' set up to track remote branch 'feature/git_add_all' from 'origin'.
+Philips-MacBook-Pro:git-pull2 philip$ git add -u
+Philips-MacBook-Pro:git-pull2 philip$ git statues
+git: 'statues' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+Philips-MacBook-Pro:git-pull2 philip$ git status
+On branch feature/git_add_all
+Your branch is up to date with 'origin/feature/git_add_all'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   models/git-command.js
+
+Philips-MacBook-Pro:git-pull2 philip$ git commit "added comment"
+error: pathspec 'added comment' did not match any file(s) known to git
+Philips-MacBook-Pro:git-pull2 philip$ git commit -m "added comment"
+[feature/git_add_all 54c2dd1] added comment
+ Committer: Philip <philip@Philips-MacBook-Pro.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Philips-MacBook-Pro:git-pull2 philip$ git push -u feature/git_add_all 
+fatal: 'feature/git_add_all' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+Philips-MacBook-Pro:git-pull2 philip$ git branch -a
+  develop
+* feature/git_add_all
+  master
+  remotes/origin/develop
+  remotes/origin/feature/git_add_all
+  remotes/origin/master
+Philips-MacBook-Pro:git-pull2 philip$ git push -u origin feature/git_add_all 
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 411 bytes | 411.00 KiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To github.com:pcampani/git-pull2.git
+   7e98c89..54c2dd1  feature/git_add_all -> feature/git_add_all
+Branch 'feature/git_add_all' set up to track remote branch 'feature/git_add_all' from 'origin'.
+Philips-MacBook-Pro:git-pull2 philip$ git checkout feature/git_add_asterisk
+error: pathspec 'feature/git_add_asterisk' did not match any file(s) known to git
+Philips-MacBook-Pro:git-pull2 philip$ git checkout -b feature/git_add_asterisk
+Switched to a new branch 'feature/git_add_asterisk'
+Philips-MacBook-Pro:git-pull2 philip$ git push -u origin feature/git_add_asterisk
+
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'feature/git_add_asterisk' on GitHub by visiting:
+remote:      https://github.com/pcampani/git-pull2/pull/new/feature/git_add_asterisk
+remote: 
+To github.com:pcampani/git-pull2.git
+ * [new branch]      feature/git_add_asterisk -> feature/git_add_asterisk
+Branch 'feature/git_add_asterisk' set up to track remote branch 'feature/git_add_asterisk' from 'origin'.
+Philips-MacBook-Pro:git-pull2 philip$ 
+Philips-MacBook-Pro:git-pull2 philip$ git add -u
+Philips-MacBook-Pro:git-pull2 philip$ git push -u origin feature/git_add_asterisk
+Branch 'feature/git_add_asterisk' set up to track remote branch 'feature/git_add_asterisk' from 'origin'.
+Everything up-to-date
+Philips-MacBook-Pro:git-pull2 philip$ git push -u origin feature/git_add_asterisk
+Branch 'feature/git_add_asterisk' set up to track remote branch 'feature/git_add_asterisk' from 'origin'.
+Everything up-to-date
+Philips-MacBook-Pro:git-pull2 philip$ 
